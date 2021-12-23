@@ -1,0 +1,47 @@
+<div class="container mt-5">
+  <div
+    class="d-flex justify-content-center row mt-5"
+    *ngFor="let ques of listQ; let i = index"
+  >
+    <div class="col-md-10 col-lg-10">
+      <div class="border">
+        <div class="question bg-white p-3 border-bottom">
+          <div class="d-flex flex-row align-items-center question-title">
+            <h3 class="text-danger">Câu {{ i + 1 }}</h3>
+            <h5 class="mt-1 ml-2">{{ ques.question }}</h5>
+            <div class="question bg-white p-3 border-bottom">
+              <div
+                class="ans ml-2"
+                *ngFor="let q of ques.answer | keyvalue; let i = index"
+              >
+                <input
+                  type="radio"
+                  name="{{ques.id}}"
+                  id="a"
+                  value="{{ q.key }}"
+                  (change)="change(q, ques.id)"
+                  class="mr-2"
+                /><span>{{ q.value }}</span>
+              </div>
+            </div>
+            <span *ngFor="let q of ques.answer | keyvalue; let i = index">
+            </span>
+          </div>
+        </div>
+        <!-- <div class="question bg-white p-3 border-bottom">
+          <div class="ans ml-2">
+            <input
+              type="radio"
+              name="check"
+              id="a"
+              value="brazil"
+              class="mr-2"
+              (click)="choose('a')"
+            /><span>{{ques.}}</span>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-primary">Nộp bài</button>
+</div>
